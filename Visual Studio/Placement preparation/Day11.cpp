@@ -11,7 +11,7 @@ using namespace std;
     int maxno=INT_MIN;
     for(int i=0;i<n;i++){
         maxno=max(maxno,arr[i]);
-        cout<<maxno<<" ";
+        cout<<maxno;
     }
 }*/
 
@@ -27,6 +27,10 @@ using namespace std;
     }
     return sum;
 }
+
+Input:3
+1 2 3
+Output:20
 
 int main(){
     int n;
@@ -56,6 +60,10 @@ int main(){
     return ans;
 }
 
+Input:7
+10 7 4 6 8 10 11
+Output:4
+    
 int main(){
     int n;
     cin>>n;
@@ -79,6 +87,10 @@ int main(){
     return ans;
 }
 
+Input:8
+1 2 0 7 2 0 2 2
+Output:2
+
 int main(){
     int n;
     cin>>n;
@@ -89,3 +101,28 @@ int main(){
     cout<<RecordBreakingDay(n,arr);
 }*/
 
+//First Repeating Element
+void FirstRepeatingNumber(int n,int a[]){
+    const int N=1e6+2;
+    int idx[N];
+    for(int i=0;i<N;i++)
+        idx[i]=-1;
+    int minidx=INT_MAX;
+    for(int i=0;i<n;i++){
+        if(idx[a[i]]!=-1)
+            minidx=min(minidx,idx[a[i]]);
+        else 
+            idx[a[i]]=i; 
+    }
+    cout<<minidx+1;
+}
+
+int main(){
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++)
+        cin>>arr[i]; 
+    cout<<"Hello";
+    FirstRepeatingNumber(n,arr);
+}
